@@ -29,6 +29,16 @@ public class PerlinNoiseObjectGenerator : MonoBehaviour
     public float objectScale = 0.2f;
 
     /// <summary>
+    /// PerlinNoise の原点 X (Seed)。
+    /// </summary>
+    public float perlinNoiseOriginX = 0;
+
+    /// <summary>
+    /// PerlinNoise の原点 Y (Seed)。
+    /// </summary>
+    public float perlinNoiseOriginY = 0;
+
+    /// <summary>
     /// PerlinNoise のスケール。
     /// </summary>
     public float perlinNoiseScale = 10;
@@ -107,8 +117,8 @@ public class PerlinNoiseObjectGenerator : MonoBehaviour
     {
         float randomValueX = Random.value;
         float randomValueY = Random.value;
-        float noiseValue   = Mathf.PerlinNoise(randomValueX * this.perlinNoiseScale,
-                                               randomValueY * this.perlinNoiseScale);
+        float noiseValue   = Mathf.PerlinNoise(this.perlinNoiseOriginX + randomValueX * this.perlinNoiseScale,
+                                               this.perlinNoiseOriginY + randomValueY * this.perlinNoiseScale);
 
         if (noiseValue < this.generateObjectThreshold)
         {
