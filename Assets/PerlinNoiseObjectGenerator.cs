@@ -56,7 +56,7 @@ public class PerlinNoiseObjectGenerator : MonoBehaviour
     /// <summary>
     /// 更新時に呼び出されます。
     /// </summary>
-    protected virtual void Update ()
+    protected virtual void Update()
     {
         if (this.objectCountMax <= this.objectList.Count)
         {
